@@ -36,9 +36,9 @@ import java.util.Set;
 
 public class StatusBarUtil {
 
-    public static int screenWidth;
-    public static int screenHeight;
-    public static int navigationHeight = 0;
+    private static int screenWidth;
+    private static int screenHeight;
+    private static int navigationHeight = 0;
 
     private static DisplayMetrics mMetrics;
     public static final String HOME_CURRENT_TAB_POSITION = "HOME_CURRENT_TAB_POSITION";
@@ -176,6 +176,74 @@ public class StatusBarUtil {
         }
     }
 
+    /**
+     * 小米手机更改状态栏颜色
+     *
+     * @param activity
+     * @param useDart
+     */
+    private static void setMIUIStatusTextColor(Activity activity, boolean useDart) {
+        //6.0后小米状态栏用的原生的
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (useDart) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    activity.getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+                }
+            } else {
+                activity.getWindow().getDecorView().setSystemUiVisibility(
+                        View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
+            }
+            activity.getWindow().getDecorView().findViewById(android.R.id.content).setPadding(0, 0, 0, navigationHeight);
+        } else {
+            processMIUI(useDart, activity);
+        }
+    }
+
+    /**
+     * 设置OPPO手机状态栏字体为黑色(colorOS3.0,6.0以下部分手机)
+     *
+     * @param lightStatusBar
+     * @param activity
+     */
+    private static final int SYSTEM_UI_FLAG_OP_STATUS_BAR_TINT = 0x00000010;
+
+    private static void setOPPOStatusTextColor(boolean lightStatusBar, Activity activity) {
+        Window window = activity.getWindow();
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        int vis = window.getDecorView().getSystemUiVisibility();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (lightStatusBar) {
+                vis |= View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
+            } else {
+                vis &= ~View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
+            }
+        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            if (lightStatusBar) {
+                vis |= SYSTEM_UI_FLAG_OP_STATUS_BAR_TINT;
+            } else {
+                vis &= ~SYSTEM_UI_FLAG_OP_STATUS_BAR_TINT;
+            }
+        }
+        window.getDecorView().setSystemUiVisibility(vis);
+    }
+
+    /**
+     * 其他手机更改状态栏字体颜色
+     */
+    private static void setOtherStatusTextColor(Activity activity, boolean useDart) {
+        if (useDart) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                activity.getWindow().getDecorView().setSystemUiVisibility
+                        (View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+            }
+        } else {
+            activity.getWindow().getDecorView().setSystemUiVisibility(
+                    View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
+        }
+        activity.getWindow().getDecorView().findViewById(android.R.id.content).setPadding
+                (0, 0, 0, navigationHeight);
+    }
+
     private static final String KEY_MIUI_VERSION_CODE = "ro.miui.ui.version.code";
     private static final String KEY_MIUI_VERSION_NAME = "ro.miui.ui.version.name";
     private static final String KEY_MIUI_INTERNAL_STORAGE = "ro.miui.internal.storage";
@@ -215,37 +283,50 @@ public class StatusBarUtil {
      * @param activity
      */
     public static void setStatusTextColor(boolean useDart, Activity activity) {
-        if (isFlyme()) {
+        if (isFlyme()) { //魅族
             processFlyMe(useDart, activity);
-        } else if (isMIUI()) {
-            processMIUI(useDart, activity);
-        } else {
-            if (useDart) {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                    activity.getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
-                }
-            } else {
-                activity.getWindow().getDecorView().setSystemUiVisibility(
-                        View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
-            }
-            activity.getWindow().getDecorView().findViewById(android.R.id.content).setPadding(0, 0, 0, navigationHeight);
+        } else if (isMIUI()) { //小米
+            //processMIUI(useDart, activity);
+            setMIUIStatusTextColor(activity, useDart);
+        } else if (Build.MANUFACTURER.equalsIgnoreCase("OPPO")) { //OPPO
+            setOPPOStatusTextColor(useDart, activity);
+        } else { //其他
+            setOtherStatusTextColor(activity, useDart);
+//            if (useDart) {
+//                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+//                    activity.getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+//                }
+//            } else {
+//                activity.getWindow().getDecorView().setSystemUiVisibility(
+//                        View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
+//            }
+//            activity.getWindow().getDecorView().findViewById(android.R.id.content).setPadding(0, 0, 0, navigationHeight);
         }
     }
 
     /**
      * 添加了一个状态栏(实际上是个view)，放在了状态栏的垂直下方
      */
-    public static void addStatusBarView(Activity activity, @ColorInt int color, int statusBarAlpha) {
+    public static void addStatusBarView(Activity activity, @ColorInt int color) {
         //获取windowphone下的decorView
         ViewGroup decorView = (ViewGroup) activity.getWindow().getDecorView();
         int count = decorView.getChildCount();
         //判断是否已经添加了statusBarView
         if (count > 0 && decorView.getChildAt(count - 1) instanceof StatusBarView) {
-            decorView.getChildAt(count - 1).setBackgroundColor(calculateStatusColor(color, statusBarAlpha));
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                decorView.getChildAt(count - 1).setBackgroundColor(calculateStatusColor(color, 00)); //全透明
+            } else {
+                decorView.getChildAt(count - 1).setBackgroundColor(calculateStatusColor(color, 55)); //半透明
+            }
         } else {
             //新建一个和状态栏高宽的view
-            StatusBarView statusView = createStatusBarView(activity, color, statusBarAlpha);
-            decorView.addView(statusView);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                StatusBarView statusView = createStatusBarView(activity, color, 00);
+                decorView.addView(statusView);
+            } else {
+                StatusBarView statusView = createStatusBarView(activity, color, 55);
+                decorView.addView(statusView);
+            }
         }
         setRootView(activity);
     }

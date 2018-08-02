@@ -50,7 +50,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 //            StatusBarUtils.setColor(this, Color.parseColor("#FFFFFF"), 50);
 //        }
 
-        StatusBarUtil.addStatusBarView(this, Color.WHITE, 00);
+        StatusBarUtil.addStatusBarView(this, Color.WHITE);
         StatusBarUtil.setStatusBar(this, false, false);
         StatusBarUtil.setStatusTextColor(true, this);
     }

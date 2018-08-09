@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="RippleView">
+        <!--View控件的颜色-->
+        <attr name="rvColor" format="color" />
+        <!--向外扩散的速度-->
+        <attr name="rvSpeed" format="integer" />
+        <!--圆形波纹扩散的间距-->
+        <attr name="rvDensity" format="integer" />
+        <!--是否开启填充模式，true为实心圆-->
+        <attr name="rvIsFill" format="boolean" />
+        <!--是否开启渐变效果，true为开启-->
+        <attr name="rvIsAlpha" format="boolean" />
+    </declare-styleable>
+</resources>

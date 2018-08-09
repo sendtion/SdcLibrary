@@ -1,18 +1,133 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
     tools:context="com.fb.sdclibrary.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:gravity="center"
+        android:orientation="horizontal">
 
-</android.support.constraint.ConstraintLayout>
+        <com.fb.sdclibrary.widget.RippleView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            app:rvColor="#ff0000"
+            app:rvDensity="3"
+            app:rvIsAlpha="true"
+            app:rvIsFill="true"
+            app:rvSpeed="3" />
+
+        <com.fb.sdclibrary.widget.RippleView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            app:rvColor="#00ff00"
+            app:rvDensity="5"
+            app:rvIsAlpha="true"
+            app:rvIsFill="true"
+            app:rvSpeed="2"/>
+
+        <com.fb.sdclibrary.widget.RippleView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            app:rvColor="#0000ff"
+            app:rvDensity="8"
+            app:rvIsAlpha="true"
+            app:rvIsFill="true"
+            app:rvSpeed="1"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <com.fb.sdclibrary.widget.RippleView
+            android:id="@+id/rpv_ripple"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            app:rvColor="#ff0000"
+            app:rvDensity="8"
+            app:rvIsAlpha="false" />
+
+        <com.fb.sdclibrary.widget.RippleView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            app:rvColor="#00ff00"
+            app:rvDensity="8"
+            app:rvIsAlpha="false" />
+
+        <com.fb.sdclibrary.widget.RippleView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            app:rvColor="#0000ff"
+            app:rvDensity="8"
+            app:rvIsAlpha="false" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <com.fb.sdclibrary.widget.RippleView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            app:rvColor="#ff0000"
+            app:rvDensity="5"
+            app:rvIsAlpha="true" />
+
+        <com.fb.sdclibrary.widget.RippleView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            app:rvColor="#00ff00"
+            app:rvDensity="5"
+            app:rvIsAlpha="true" />
+
+        <com.fb.sdclibrary.widget.RippleView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            app:rvColor="#0000ff"
+            app:rvDensity="5"
+            app:rvIsAlpha="true" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <com.fb.sdclibrary.widget.RippleView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            app:rvColor="#ff0000"
+            app:rvDensity="1"
+            app:rvIsAlpha="true"
+            app:rvSpeed="3" />
+
+        <com.fb.sdclibrary.widget.RippleView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            app:rvColor="#00ff00"
+            app:rvDensity="1"
+            app:rvIsAlpha="true"
+            app:rvSpeed="3" />
+
+        <com.fb.sdclibrary.widget.RippleView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            app:rvColor="#0000ff"
+            app:rvDensity="1"
+            app:rvIsAlpha="true"
+            app:rvSpeed="3" />
+    </LinearLayout>
+
+</LinearLayout>

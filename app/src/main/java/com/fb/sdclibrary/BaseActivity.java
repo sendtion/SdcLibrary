@@ -15,17 +15,22 @@ import butterknife.ButterKnife;
 
 public abstract class BaseActivity extends AppCompatActivity {
 
-    protected void onCreate(Bundle savedInstanceState, int resourceId) {
+    protected void onCreate(Bundle savedInstanceState, int layoutId) {
         super.onCreate(savedInstanceState);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        setContentView(resourceId);
+        setContentView(layoutId);
+
         // 添加Activity到堆栈
-        //AppManager.getAppManager().addActivity(this);
+        AppManager.getAppManager().addActivity(this);
+        // 初始化ButterKnife
         ButterKnife.bind(this);
+        // 初始化EventBus
         if (isBindEventBus() && !EventBus.getDefault().isRegistered(this)) {
             EventBus.getDefault().register(this);
         }
+        // 初始化状态栏
         initStatusBar();
+
         initView();
         initData();
         loadData();
@@ -57,9 +62,11 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     protected abstract void initView();
 
-    protected abstract void initData();
+    protected void initData() {
+    }
 
-    protected abstract void loadData();
+    protected void loadData() {
+    }
 
     @Override
     protected void onDestroy() {

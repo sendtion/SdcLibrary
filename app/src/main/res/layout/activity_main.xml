@@ -1,133 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
     android:orientation="vertical"
     tools:context="com.fb.sdclibrary.MainActivity">
 
-    <LinearLayout
+    <TextView
+        android:id="@+id/tv_water_ripple_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="horizontal">
-
-        <com.fb.sdclibrary.widget.RippleView
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            app:rvColor="#ff0000"
-            app:rvDensity="3"
-            app:rvIsAlpha="true"
-            app:rvIsFill="true"
-            app:rvSpeed="3" />
-
-        <com.fb.sdclibrary.widget.RippleView
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            app:rvColor="#00ff00"
-            app:rvDensity="5"
-            app:rvIsAlpha="true"
-            app:rvIsFill="true"
-            app:rvSpeed="2"/>
-
-        <com.fb.sdclibrary.widget.RippleView
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            app:rvColor="#0000ff"
-            app:rvDensity="8"
-            app:rvIsAlpha="true"
-            app:rvIsFill="true"
-            app:rvSpeed="1"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="horizontal">
-
-        <com.fb.sdclibrary.widget.RippleView
-            android:id="@+id/rpv_ripple"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            app:rvColor="#ff0000"
-            app:rvDensity="8"
-            app:rvIsAlpha="false" />
-
-        <com.fb.sdclibrary.widget.RippleView
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            app:rvColor="#00ff00"
-            app:rvDensity="8"
-            app:rvIsAlpha="false" />
-
-        <com.fb.sdclibrary.widget.RippleView
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            app:rvColor="#0000ff"
-            app:rvDensity="8"
-            app:rvIsAlpha="false" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="horizontal">
-
-        <com.fb.sdclibrary.widget.RippleView
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            app:rvColor="#ff0000"
-            app:rvDensity="5"
-            app:rvIsAlpha="true" />
-
-        <com.fb.sdclibrary.widget.RippleView
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            app:rvColor="#00ff00"
-            app:rvDensity="5"
-            app:rvIsAlpha="true" />
-
-        <com.fb.sdclibrary.widget.RippleView
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            app:rvColor="#0000ff"
-            app:rvDensity="5"
-            app:rvIsAlpha="true" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="horizontal">
-
-        <com.fb.sdclibrary.widget.RippleView
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            app:rvColor="#ff0000"
-            app:rvDensity="1"
-            app:rvIsAlpha="true"
-            app:rvSpeed="3" />
-
-        <com.fb.sdclibrary.widget.RippleView
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            app:rvColor="#00ff00"
-            app:rvDensity="1"
-            app:rvIsAlpha="true"
-            app:rvSpeed="3" />
-
-        <com.fb.sdclibrary.widget.RippleView
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            app:rvColor="#0000ff"
-            app:rvDensity="1"
-            app:rvIsAlpha="true"
-            app:rvSpeed="3" />
-    </LinearLayout>
+        android:background="?attr/selectableItemBackground"
+        android:padding="10dp"
+        android:text="水波扩散效果"/>
 
 </LinearLayout>

@@ -1,8 +1,10 @@
-package com.fb.sdclibrary;
+package com.fb.sdclibrary.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+
+import com.fb.sdclibrary.R;
 
 import butterknife.OnClick;
 
@@ -21,15 +23,18 @@ public class MainActivity extends BaseActivity {
 
     }
 
-    @OnClick({R.id.tv_water_ripple_view})
+    @OnClick({R.id.tv_water_ripple_view, R.id.tv_water_ripple_sign})
     public void onClick(View view){
+        Intent intent = new Intent();
         switch (view.getId()){
             case R.id.tv_water_ripple_view:
-                Intent intent = new Intent();
                 intent.setClass(this, RippleViewActivity.class);
-                startActivity(intent);
+                break;
+            case R.id.tv_water_ripple_sign:
+                intent.setClass(this, RippleSignActivity.class);
                 break;
         }
+        startActivity(intent);
     }
 
 }

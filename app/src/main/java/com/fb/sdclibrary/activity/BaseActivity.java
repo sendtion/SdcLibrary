@@ -1,4 +1,4 @@
-package com.fb.sdclibrary;
+package com.fb.sdclibrary.activity;
 
 import android.content.pm.ActivityInfo;
 import android.graphics.Color;

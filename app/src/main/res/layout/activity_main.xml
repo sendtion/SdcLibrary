@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.fb.sdclibrary.MainActivity">
+    tools:context="com.fb.sdclibrary.activity.MainActivity">
 
     <TextView
         android:id="@+id/tv_water_ripple_view"
@@ -13,5 +13,13 @@
         android:background="?attr/selectableItemBackground"
         android:padding="10dp"
         android:text="水波扩散效果"/>
+
+    <TextView
+        android:id="@+id/tv_water_ripple_sign"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackground"
+        android:padding="10dp"
+        android:text="签到扩散效果"/>
 
 </LinearLayout>

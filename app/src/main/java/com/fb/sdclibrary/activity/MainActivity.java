@@ -23,7 +23,7 @@ public class MainActivity extends BaseActivity {
 
     }
 
-    @OnClick({R.id.tv_water_ripple_view, R.id.tv_water_ripple_sign})
+    @OnClick({R.id.tv_water_ripple_view, R.id.tv_water_ripple_sign, R.id.tv_date_picker})
     public void onClick(View view){
         Intent intent = new Intent();
         switch (view.getId()){
@@ -32,6 +32,9 @@ public class MainActivity extends BaseActivity {
                 break;
             case R.id.tv_water_ripple_sign:
                 intent.setClass(this, RippleSignActivity.class);
+                break;
+            case R.id.tv_date_picker:
+                intent.setClass(this, PickerActivity.class);
                 break;
         }
         startActivity(intent);

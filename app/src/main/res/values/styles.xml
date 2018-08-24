@@ -19,4 +19,9 @@
         <item name="android:backgroundDimAmount">0.6</item>
     </style>
 
+    <style name="AnimationCustomPopup" parent="@android:style/Animation">
+        <item name="android:windowEnterAnimation">@anim/popup_in</item>
+        <item name="android:windowExitAnimation">@anim/popup_out</item>
+    </style>
+
 </resources>

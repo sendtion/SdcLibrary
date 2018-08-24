@@ -1,7 +1,12 @@
 package com.fb.sdclibrary.utils;
 
+import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.Locale;
 
 /**
  * Description: 时间处理，获取当月的天数，获取当月的第一天和最后一天
@@ -10,6 +15,9 @@ import java.util.Calendar;
  */
 
 public class DateUtils {
+
+    private static final DateFormat DEFAULT_FORMAT = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
+    private static final DateFormat FILE_NAME_FORMAT = new SimpleDateFormat("yyyyMMddHHmmssSSS", Locale.getDefault());
 
     public static void main(String[] args) {
         int currentMaxDays = getCurrentMonthDay();
@@ -90,4 +98,76 @@ public class DateUtils {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         return sdf.format(cal.getTime());
     }
+
+    /**
+     * 根据日期字符串获取年份
+     */
+    public static int getYearFromString(String timeStr) {
+        //DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss", Locale.CHINA);
+        Date date = null;
+        try {
+            date = DEFAULT_FORMAT.parse(timeStr);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        GregorianCalendar calendar = new GregorianCalendar();
+        calendar.setTime(date);
+        //System.out.println(calendar.get(Calendar.YEAR) + "-" + (calendar.get(Calendar.MONTH) + 1) + "-" + calendar.get(Calendar.DAY_OF_MONTH));
+        //System.out.println((date.getYear() + 1900) + "-" + (date.getMonth() + 1) + "-" + (date.getDay() + 12));
+        return calendar.get(Calendar.YEAR);
+    }
+
+    /**
+     * 根据日期字符串获取月份
+     */
+    public static int getMonthFromString(String timeStr) {
+        //DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss", Locale.CHINA);
+        Date date = null;
+        try {
+            date = DEFAULT_FORMAT.parse(timeStr);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        GregorianCalendar calendar = new GregorianCalendar();
+        calendar.setTime(date);
+        //System.out.println(calendar.get(Calendar.YEAR) + "-" + (calendar.get(Calendar.MONTH) + 1) + "-" + calendar.get(Calendar.DAY_OF_MONTH));
+        //System.out.println((date.getYear() + 1900) + "-" + (date.getMonth() + 1) + "-" + (date.getDay() + 12));
+        return calendar.get(Calendar.MONTH) + 1;
+    }
+
+    /**
+     * 根据日期字符串获取日期
+     */
+    public static int getDayFromString(String timeStr) {
+        //DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss", Locale.CHINA);
+        Date date = null;
+        try {
+            date = DEFAULT_FORMAT.parse(timeStr);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        GregorianCalendar calendar = new GregorianCalendar();
+        calendar.setTime(date);
+        //System.out.println(calendar.get(Calendar.YEAR) + "-" + (calendar.get(Calendar.MONTH) + 1) + "-" + calendar.get(Calendar.DAY_OF_MONTH));
+        //System.out.println((date.getYear() + 1900) + "-" + (date.getMonth() + 1) + "-" + (date.getDay() + 12));
+        return calendar.get(Calendar.DAY_OF_MONTH);
+    }
+
+    /**
+     * 格式化时间为 MM/dd HH:mm  yyyy-MM-dd  yyyy-MM-dd HH:mm
+     *
+     */
+    public static String getFormatTime(String dateStr, String formatStr) {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.CHINA);
+        String result = null;
+        try {
+            Date date = sdf.parse(dateStr);
+            SimpleDateFormat formatter = new SimpleDateFormat(formatStr, Locale.CHINA);
+            result = formatter.format(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
 }

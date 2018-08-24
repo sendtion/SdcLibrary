@@ -4,6 +4,7 @@ import android.content.pm.ActivityInfo;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.Toast;
 
 import com.fb.sdclibrary.utils.AppManager;
 import com.fb.sdclibrary.utils.StatusBarUtil;
@@ -11,6 +12,7 @@ import com.fb.sdclibrary.utils.StatusBarUtil;
 import org.greenrobot.eventbus.EventBus;
 
 import butterknife.ButterKnife;
+import es.dmoral.toasty.Toasty;
 
 
 public abstract class BaseActivity extends AppCompatActivity {
@@ -66,6 +68,18 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     protected void loadData() {
+    }
+
+    public void showToast(String text){
+        Toasty.normal(this, text).show();
+    }
+
+    public void showShortToast(String text){
+        Toasty.normal(this, text, Toast.LENGTH_SHORT).show();
+    }
+
+    public void showLongToast(String text){
+        Toasty.normal(this, text, Toast.LENGTH_LONG).show();
     }
 
     @Override

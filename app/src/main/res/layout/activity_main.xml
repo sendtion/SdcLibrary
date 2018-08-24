@@ -22,4 +22,12 @@
         android:padding="10dp"
         android:text="签到扩散效果"/>
 
+    <TextView
+        android:id="@+id/tv_date_picker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackground"
+        android:padding="10dp"
+        android:text="日期选择器"/>
+
 </LinearLayout>

@@ -20,7 +20,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.RippleViewActivity" />
-        <activity android:name=".activity.RippleSignActivity"></activity>
+        <activity android:name=".activity.RippleSignActivity" />
+        <activity android:name=".activity.PickerActivity"></activity>
     </application>
 
 </manifest>

@@ -49,6 +49,7 @@ dependencies {
     compile 'com.just.agentweb:agentweb:2.0.1'
     compile 'com.github.PhilJay:MPAndroidChart:v3.0.1'
     compile 'com.nineoldandroids:library:2.4.0'
+    compile 'com.github.GrenderG:Toasty:1.3.0'
     testCompile 'junit:junit:4.12'
     apt 'com.jakewharton:butterknife-compiler:8.8.1'
     debugCompile 'com.squareup.leakcanary:leakcanary-android:1.3.1'

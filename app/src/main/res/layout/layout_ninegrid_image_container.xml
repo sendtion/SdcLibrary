@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.fb.sdclibrary.widget.ninegridview.NineGridImageView
+        android:id="@+id/img_ninegrid_imagecontainer_content"
+        android:layout_width="@dimen/x120"
+        android:layout_height="@dimen/x120"
+        android:layout_gravity="center"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/icon_add_picture" />
+
+    <ImageView
+        android:id="@+id/img_ninegrid_imagecontainer_delete"
+        android:layout_width="@dimen/x30"
+        android:layout_height="@dimen/x30"
+        android:layout_gravity="top|right"
+        android:foregroundGravity="top|right"
+        android:scaleType="fitXY"
+        android:src="@mipmap/icon_delete" />
+
+</FrameLayout>

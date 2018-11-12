@@ -12,6 +12,7 @@ import com.fb.sdclibrary.R;
 import com.fb.sdclibrary.utils.ScreenUtils;
 
 public class CustomToast {
+    private static CustomToast customToast;
     private TextView mMessage;
     private Toast mToast;
     private View mToastRoot;
@@ -30,6 +31,17 @@ public class CustomToast {
         mMessage = (TextView) mToastRoot.findViewById(R.id.toast_message);
         mIcon = ((ImageView) mToastRoot.findViewById(R.id.toast_icon));
         mScreenHeight = ScreenUtils.getScreenHeight();
+    }
+
+    public static CustomToast getInstance(Context context){
+        if (customToast == null){
+            synchronized (CustomToast.class){
+                if (customToast == null){
+                    customToast = new CustomToast(context);
+                }
+            }
+        }
+        return customToast;
     }
 
     public void showToastLong(String message) {

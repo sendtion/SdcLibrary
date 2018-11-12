@@ -1,11 +1,11 @@
 package com.fb.sdclibrary.activity;
 
 import android.content.pm.ActivityInfo;
-import android.graphics.Color;
-import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
+import com.fb.sdclibrary.R;
 import com.fb.sdclibrary.utils.AppManager;
 import com.fb.sdclibrary.utils.StatusBarUtil;
 
@@ -17,10 +17,9 @@ import es.dmoral.toasty.Toasty;
 
 public abstract class BaseActivity extends AppCompatActivity {
 
-    protected void onCreate(Bundle savedInstanceState, int layoutId) {
-        super.onCreate(savedInstanceState);
+    public void setContentView(int layoutId) {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        setContentView(layoutId);
+        super.setContentView(layoutId);
 
         // 添加Activity到堆栈
         AppManager.getAppManager().addActivity(this);
@@ -57,9 +56,9 @@ public abstract class BaseActivity extends AppCompatActivity {
 //            StatusBarUtils.setColor(this, Color.parseColor("#FFFFFF"), 50);
 //        }
 
-        StatusBarUtil.addStatusBarView(this, Color.WHITE);
+        StatusBarUtil.addStatusBarView(this, ContextCompat.getColor(this, R.color.colorPrimary));
         StatusBarUtil.setStatusBar(this, false, false);
-        StatusBarUtil.setStatusTextColor(true, this);
+        StatusBarUtil.setStatusTextColor(false, this); //状态栏颜色
     }
 
     protected abstract void initView();

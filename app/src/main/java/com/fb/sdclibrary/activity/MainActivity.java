@@ -5,22 +5,23 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.fb.sdclibrary.R;
+import com.fb.sdclibrary.utils.UpdateManager;
 
 import butterknife.OnClick;
 
 public class MainActivity extends BaseActivity {
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState, R.layout.activity_main);
-        //setContentView(R.layout.activity_main);
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
 
     }
 
     @Override
     protected void initView() {
 
+        new UpdateManager(this).checkUpdate(true);
     }
 
     @OnClick({R.id.tv_water_ripple_view, R.id.tv_water_ripple_sign, R.id.tv_date_picker})

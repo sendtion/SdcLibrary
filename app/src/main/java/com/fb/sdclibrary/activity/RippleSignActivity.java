@@ -14,7 +14,8 @@ public class RippleSignActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState, R.layout.activity_ripple_sign);
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_ripple_sign);
     }
 
     @Override

@@ -6,12 +6,16 @@
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
 
     <application
+        android:name=".MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <service android:name=".service.CheckUpdateService" />
+
         <activity android:name=".activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,7 +25,7 @@
         </activity>
         <activity android:name=".activity.RippleViewActivity" />
         <activity android:name=".activity.RippleSignActivity" />
-        <activity android:name=".activity.PickerActivity"></activity>
+        <activity android:name=".activity.PickerActivity" />
     </application>
 
 </manifest>

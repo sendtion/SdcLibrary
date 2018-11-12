@@ -25,7 +25,8 @@ public class PickerActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState, R.layout.activity_picker);
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_picker);
     }
 
     @Override

@@ -24,7 +24,7 @@ public class MainActivity extends BaseActivity {
         new UpdateManager(this).checkUpdate(true);
     }
 
-    @OnClick({R.id.tv_water_ripple_view, R.id.tv_water_ripple_sign, R.id.tv_date_picker})
+    @OnClick({R.id.tv_water_ripple_view, R.id.tv_water_ripple_sign, R.id.tv_date_picker, R.id.tv_recycler_view})
     public void onClick(View view){
         Intent intent = new Intent();
         switch (view.getId()){
@@ -36,6 +36,11 @@ public class MainActivity extends BaseActivity {
                 break;
             case R.id.tv_date_picker:
                 intent.setClass(this, PickerActivity.class);
+                break;
+            case R.id.tv_recycler_view:
+                intent.setClass(this, RecyclerViewActivity.class);
+                break;
+            default:
                 break;
         }
         startActivity(intent);

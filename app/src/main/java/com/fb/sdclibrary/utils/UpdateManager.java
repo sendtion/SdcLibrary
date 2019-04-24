@@ -20,7 +20,7 @@ public class UpdateManager {
      * 检测软件更新
      */
     public void checkUpdate(final boolean isToast) {
-        showNoticeDialog("更新内容测试", "", "v 1.5.8");
+        //showNoticeDialog("更新内容测试", "", "v 1.5.8");
 
 //        String url = SPUtils.getInstance().getString(StaticApiConstants.LOGIN_CHECK_VERSION);
 //        Map<String, Object> params = CommonParametersUtil.MethodGetSign();

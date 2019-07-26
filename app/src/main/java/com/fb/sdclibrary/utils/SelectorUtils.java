@@ -2,7 +2,7 @@ package com.fb.sdclibrary.utils;
 
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.StateListDrawable;
-import android.support.v4.content.res.ResourcesCompat;
+import androidx.core.content.res.ResourcesCompat;
 
 /**
  * Description: 代码生成图片选择器

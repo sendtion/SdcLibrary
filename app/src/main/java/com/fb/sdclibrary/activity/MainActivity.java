@@ -8,6 +8,7 @@ import com.fb.sdclibrary.R;
 import com.fb.sdclibrary.utils.UpdateManager;
 
 import butterknife.OnClick;
+import io.github.isliqian.NiceEmail;
 
 public class MainActivity extends BaseActivity {
 
@@ -29,7 +30,8 @@ public class MainActivity extends BaseActivity {
         Intent intent = new Intent();
         switch (view.getId()){
             case R.id.tv_water_ripple_view:
-                intent.setClass(this, RippleViewActivity.class);
+                //intent.setClass(this, RippleViewActivity.class);
+                sendEmail();
                 break;
             case R.id.tv_water_ripple_sign:
                 intent.setClass(this, RippleSignActivity.class);
@@ -43,7 +45,19 @@ public class MainActivity extends BaseActivity {
             default:
                 break;
         }
-        startActivity(intent);
+        //startActivity(intent);
+    }
+
+    private void sendEmail(){
+        try {
+            NiceEmail.subject("这是一封测试TEXT邮件")//主题
+                    .from("LqNice")//发件人昵称
+                    .to("???@qq.com")//收件人
+                    .text("信件内容")//内容
+                    .send();//发送
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 }

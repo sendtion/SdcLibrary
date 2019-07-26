@@ -24,4 +24,13 @@
         <item name="android:windowExitAnimation">@anim/popup_out</item>
     </style>
 
+    <!--Activity透明-->
+    <style name="transparent" parent="AppTheme">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowEnterAnimation">@null</item>
+        <item name="android:windowExitAnimation">@null</item>
+        <item name="android:windowBackground">@color/color_00_0</item>
+    </style>
+
 </resources>

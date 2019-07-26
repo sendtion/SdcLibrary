@@ -24,4 +24,75 @@
         <attr name="icon_delete" format="reference"/>
         <attr name="delete_ratio" format="float"/>
     </declare-styleable>
+
+    <declare-styleable name="DashLineView">
+        <attr name="dashWidth" format="dimension" />
+        <attr name="lineSize" format="dimension" />
+        <attr name="lineHeight" format="dimension" />
+        <attr name="lineColor" format="color" />
+        <attr name="dashOrientation" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="EasyPickerView">
+        <attr name="epvTextSize" format="dimension" />
+        <attr name="epvTextColor" format="color" />
+        <attr name="epvTextPadding" format="dimension" />
+        <attr name="epvTextMaxScale" format="float" />
+        <attr name="epvTextMinAlpha" format="float" />
+        <attr name="epvRecycleMode" format="boolean" />
+        <attr name="epvMaxShowNum" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="circlePageIndicator">
+        <attr name="circleDivideWidth" format="dimension" />
+        <attr name="circleNormalColor" format="color" />
+        <attr name="circleSelectedColor" format="color" />
+        <attr name="radius" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="LD_WaveView">
+        <attr name="wave_color" format="color" />
+        <attr name="wave_circle" format="boolean" />
+        <attr name="wave_circle_fill_color" format="color" />
+        <attr name="wave_circle_border_color" format="color" />
+        <attr name="wave_out_circle_color" format="color" />
+        <attr name="wave_progress_text_color" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="CountDownProgress">
+        <!-- 圆实心的颜色 -->
+        <attr name="circSolidColor" format="color" />
+        <!-- 圆边框的颜色 -->
+        <attr name="circFrameColor" format="color" />
+        <!-- 圆边框的宽度 -->
+        <attr name="circFrameWidth" format="integer" />
+        <!-- 进度条的颜色 -->
+        <attr name="progressColor" format="color" />
+        <!-- 进度条的宽度 -->
+        <attr name="progressWidth" format="integer" />
+        <!-- 文字的颜色 -->
+        <attr name="textColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="CountDownProgressBar">
+        <attr name="countDown_circleWidth" format="dimension" />
+        <attr name="countDown_centerTextSize" format="dimension" />
+        <attr name="countDown_betaAngle" format="integer" />
+        <attr name="countDown_firstColor" format="color" />
+        <attr name="countDown_secondColor" format="color" />
+        <attr name="countDown_centerTextColor" format="color" />
+        <attr name="countDown_isShowGradient" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="CountdownView">
+        <attr name="arcColor" format="color" />
+        <attr name="numColor" format="color" />
+        <attr name="arcStrokeWidth" format="dimension" />
+        <attr name="numTextSize" format="dimension" />
+        <attr name="initDegree" format="integer" />
+        <attr name="maxNum" format="integer" />
+        <attr name="isCW" format="boolean" />
+        <attr name="mRadius" format="dimension" />
+        <attr name="plusNumAnimDuration" format="float" />
+    </declare-styleable>
 </resources>

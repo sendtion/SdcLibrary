@@ -42,6 +42,17 @@
                 android:textColor="#666666"
                 android:textSize="28sp"
                 android:visibility="gone" />
+
+            <EditText
+                android:id="@+id/custom_dialog_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginLeft="@dimen/x40"
+                android:layout_marginRight="@dimen/x40"
+                android:visibility="gone"
+                android:background="@drawable/shape_ar_7_border_1_e7e7e7"/>
         </LinearLayout>
 
         <View

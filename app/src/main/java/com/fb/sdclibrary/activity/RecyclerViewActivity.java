@@ -1,9 +1,9 @@
 package com.fb.sdclibrary.activity;
 
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.helper.ItemTouchHelper;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.ItemTouchHelper;
 
 import com.fb.sdclibrary.DataManager;
 import com.fb.sdclibrary.R;
@@ -59,7 +59,7 @@ public class RecyclerViewActivity extends BaseActivity {
 //                RecyclerViewHolder holder = (RecyclerViewHolder) viewHolder;
 //                holder.getTextView(R.id.tv_fruit_name).setText("123456");
                 int position = viewHolder.getAdapterPosition();
-                new CustomToast(RecyclerViewActivity.this).showToastBottomShort("点击: " + mDatas.get(position));
+                CustomToast.getInstance(RecyclerViewActivity.this).showToastBottomShort("点击: " + mDatas.get(position));
             }
 
             @Override
@@ -67,7 +67,7 @@ public class RecyclerViewActivity extends BaseActivity {
 //                RecyclerViewHolder holder = (RecyclerViewHolder) viewHolder;
 //                holder.getTextView(R.id.tv_fruit_name).setText("654321");
                 int position = viewHolder.getAdapterPosition();
-                new CustomToast(RecyclerViewActivity.this).showToastBottomShort("长按: " + mDatas.get(position));
+                CustomToast.getInstance(RecyclerViewActivity.this).showToastBottomShort("长按: " + mDatas.get(position));
             }
         });
 

@@ -4,6 +4,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.fb.sdclibrary.R;
@@ -13,6 +14,7 @@ public class CustomDialog extends Dialog {
     private TextView mCancel;
     private TextView mConfirm;
     private TextView mContent;
+    private EditText mInput;
     private View mDivide;
     private View.OnClickListener mCancelListeners;
     private View.OnClickListener mConfirmListeners;
@@ -29,6 +31,7 @@ public class CustomDialog extends Dialog {
         mCancel = ((TextView) view.findViewById(R.id.custom_dialog_cancel));
         mConfirm = ((TextView) view.findViewById(R.id.custom_dialog_confirm));
         mContent = ((TextView) view.findViewById(R.id.custom_dialog_content));
+        mInput = (EditText) view.findViewById(R.id.custom_dialog_input);
         mCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -146,5 +149,29 @@ public class CustomDialog extends Dialog {
             mDivide.setVisibility(View.GONE);
         }
         return this;
+    }
+
+    public CustomDialog setCancelEnable(boolean enable) {
+        setCancelable(enable);
+        return this;
+    }
+
+    public CustomDialog setMessageGravity(int gravity) {
+        mMessage.setGravity(gravity);
+        return this;
+    }
+
+    public CustomDialog setMessagePadding(int left, int top, int right, int bottom) {
+        mMessage.setPadding(left, top, right, bottom);
+        return this;
+    }
+
+    public CustomDialog setInputVisibility(int visibility) {
+        mInput.setVisibility(visibility);
+        return this;
+    }
+
+    public String getInputContent(){
+        return mInput.getText().toString();
     }
 }

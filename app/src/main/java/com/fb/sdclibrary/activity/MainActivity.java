@@ -30,8 +30,8 @@ public class MainActivity extends BaseActivity {
         Intent intent = new Intent();
         switch (view.getId()){
             case R.id.tv_water_ripple_view:
-                //intent.setClass(this, RippleViewActivity.class);
-                sendEmail();
+                intent.setClass(this, RippleViewActivity.class);
+                //sendEmail();
                 break;
             case R.id.tv_water_ripple_sign:
                 intent.setClass(this, RippleSignActivity.class);
@@ -45,7 +45,7 @@ public class MainActivity extends BaseActivity {
             default:
                 break;
         }
-        //startActivity(intent);
+        startActivity(intent);
     }
 
     private void sendEmail(){

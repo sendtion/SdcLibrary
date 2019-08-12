@@ -1,16 +1,17 @@
 package com.fb.sdclibrary.activity;
 
 import android.os.Bundle;
+
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.recyclerview.widget.ItemTouchHelper;
 
 import com.fb.sdclibrary.DataManager;
 import com.fb.sdclibrary.R;
 import com.fb.sdclibrary.adapter.BaseRecyclerAdapter;
 import com.fb.sdclibrary.adapter.RecyclerViewHolder;
-import com.fb.sdclibrary.event.OnRecyclerItemClickListener;
 import com.fb.sdclibrary.event.ItemTouchHelperCallback;
+import com.fb.sdclibrary.event.OnRecyclerItemClickListener;
 import com.fb.sdclibrary.widget.CustomToast;
 
 import java.util.Collections;

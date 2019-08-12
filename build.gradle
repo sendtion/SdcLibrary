@@ -4,15 +4,16 @@ buildscript {
     repositories {
         google()
         jcenter()
+        mavenCentral()
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.2.1'
         classpath 'org.greenrobot:greendao-gradle-plugin:3.2.2'
         classpath 'com.jakewharton:butterknife-gradle-plugin:10.1.0'
         classpath 'com.hujiang.aspectjx:gradle-android-plugin-aspectjx:2.0.5'
+        //classpath 'com.jakewharton.hugo:hugo-plugin:1.2.1'
+        classpath "io.github.prototypez:save-state:0.2.3"
 
-        // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
     }
 }
 
